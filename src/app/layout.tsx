@@ -1,7 +1,8 @@
-// import "./globals.css";
+import "./globals.css";
 import React from "react";
 
-import { Providers } from "@/redux/provider";
+import { Providers } from "@/modules/redux/provider";
+import Navbar from "@/modules/ui/navbar";
 
 export const metadata = {
   title: "Create Next App",
@@ -14,9 +15,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" data-theme="cupcake">
       <body>
-        <Providers>{children}</Providers>
+        <Providers>
+          <Navbar />
+          {children}
+        </Providers>
       </body>
     </html>
   );

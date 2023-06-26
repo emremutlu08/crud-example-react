@@ -16,7 +16,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" data-theme="cupcake">
-      <body>
+      <body
+        suppressHydrationWarning={true} // Extensions similar to Grammarly and LanguageTool cause hydration warnings, so we suppress them.
+      >
         <Providers>
           <Navbar />
           {children}

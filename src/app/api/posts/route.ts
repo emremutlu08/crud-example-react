@@ -1,10 +1,17 @@
 import { NextRequest, NextResponse } from "next/server";
 
-export async function GET(request: NextRequest) {
-  const res = await fetch(
-    "https://dummyjson.com/posts" + request.nextUrl.search
-  );
-  const data = await res.json();
+import baseApi from "@/modules/helpers/axios";
 
-  return NextResponse.json({ data });
+export async function GET(request: NextRequest) {
+  const res = await baseApi.get("/posts" + request.nextUrl.search);
+  const data = await res.data;
+
+  return NextResponse.json(data);
+}
+
+export async function POST(request: NextRequest) {
+  const res = await baseApi.post("/posts", request.body);
+  const data = await res.data;
+
+  return NextResponse.json(data);
 }

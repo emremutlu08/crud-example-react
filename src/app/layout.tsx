@@ -1,8 +1,11 @@
 import "./globals.css";
 import React from "react";
 
+import { ToastContainer } from "react-toastify";
+
 import { Providers } from "@/modules/redux/provider";
 import Navbar from "@/modules/ui/components/navbar";
+import "react-toastify/dist/ReactToastify.css";
 
 export const metadata = {
   title: "Create Next App",
@@ -22,6 +25,7 @@ export default function RootLayout({
         <Providers>
           <Navbar />
           {children}
+          <ToastContainer />
         </Providers>
       </body>
     </html>

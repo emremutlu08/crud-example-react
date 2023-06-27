@@ -6,7 +6,7 @@ import postsReducer from "../posts/slices/posts-slice";
 
 export const store = configureStore({
   reducer: {
-    postsReducer,
+    posts: postsReducer,
     [postsApi.reducerPath]: postsApi.reducer,
   },
   devTools: process.env.NODE_ENV !== "production",

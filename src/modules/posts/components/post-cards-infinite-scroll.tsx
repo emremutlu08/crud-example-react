@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 import { useAppDispatch, useAppSelector } from "@/modules/redux/hooks";
+import LoadingSpinner from "@/modules/ui/components/loading-spinner";
 
 import PostCard from "./post-card";
 import { useReadPostsQuery } from "../apis/posts-api";
@@ -33,7 +34,7 @@ export default function PostCardsInfiniteScroll() {
       dataLength={posts.length}
       next={handleNextPage}
       hasMore={data?.total !== posts.length}
-      loader={<h4>Loading...</h4>}
+      loader={<LoadingSpinner />}
       endMessage={
         <p style={{ textAlign: "center" }}>
           <b>Yay! You have seen it all</b>

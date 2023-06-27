@@ -13,7 +13,7 @@ export const postsApi = createApi({
       query: (body) => ({
         url: "",
         method: "POST",
-        body: JSON.stringify({ ...body }),
+        body: JSON.stringify({ ...body, userId: 1, reactions: 0 }),
         responseHandler(response) {
           if (!response.ok) {
             toast("Couldn't created!", { type: "error" });

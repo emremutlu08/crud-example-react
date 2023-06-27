@@ -2,7 +2,7 @@ import "./globals.css";
 import React from "react";
 
 import { Providers } from "@/modules/redux/provider";
-import Navbar from "@/modules/ui/navbar";
+import Navbar from "@/modules/ui/components/navbar";
 
 export const metadata = {
   title: "Create Next App",

@@ -3,6 +3,7 @@ import { useState } from "react";
 import Image from "next/image";
 
 import { useAppDispatch } from "@/modules/redux/hooks";
+import Button from "@/modules/ui/components/button";
 import LoadingSpinner from "@/modules/ui/components/loading-spinner";
 import DotsIcon from "@/modules/ui/icons/dots.svg";
 
@@ -29,6 +30,8 @@ export default function PostCardHeaderMenu({ id }: IPostCardHeaderMenuProps) {
       });
   };
 
+  const notDeletable = id > 150;
+
   return (
     <>
       <div className="flex justify-end relative">
@@ -44,7 +47,9 @@ export default function PostCardHeaderMenu({ id }: IPostCardHeaderMenuProps) {
         {isMenuOpen && (
           <ul className="menu bg-base-200 rounded-box absolute top-full z-10">
             <li>
-              <a onClick={handleDelete}>Remove Story</a>
+              <Button disabled={notDeletable} onClick={handleDelete}>
+                Remove Story
+              </Button>
             </li>
           </ul>
         )}

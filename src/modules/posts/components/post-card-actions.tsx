@@ -33,6 +33,7 @@ export default function PostCardActions({ item }: IPostCardActionsProps) {
   };
 
   const buttonText = isLiked ? "Remove Like" : "Like";
+  const notLikeable = id > 150;
 
   return (
     <>
@@ -49,7 +50,11 @@ export default function PostCardActions({ item }: IPostCardActionsProps) {
         <span>{reactionsCount}</span>
       </div>
       <div className="justify-end">
-        <button className="btn btn-primary" onClick={handleLike}>
+        <button
+          className="btn btn-primary"
+          onClick={handleLike}
+          disabled={notLikeable}
+        >
           {isLoading ? <LoadingSpinner /> : buttonText}
         </button>
       </div>

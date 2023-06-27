@@ -10,7 +10,8 @@ export async function GET(request: NextRequest) {
 }
 
 export async function POST(request: NextRequest) {
-  const res = await baseApi.post("/posts", request.body);
+  const body = await request.json();
+  const res = await baseApi.post("/posts/add", body);
   const data = await res.data;
 
   return new NextResponse(JSON.stringify(data), { status: res.status });

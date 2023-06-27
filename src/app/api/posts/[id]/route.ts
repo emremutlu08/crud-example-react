@@ -8,6 +8,10 @@ export async function PUT(
   request: NextRequest,
   { params: { id } }: PostsParams
 ) {
+  if (Number(id) > 150) {
+    return new NextResponse(null, { status: 400 });
+  }
+
   const body = await request.json();
   const res = await baseApi.put("/posts/" + id, body);
   const data = await res.data;
@@ -16,6 +20,10 @@ export async function PUT(
 }
 
 export async function DELETE(_: NextRequest, { params: { id } }: PostsParams) {
+  if (Number(id) > 150) {
+    return new NextResponse(null, { status: 400 });
+  }
+
   const res = await baseApi.delete("/posts/" + id);
   const data = await res.data;
 

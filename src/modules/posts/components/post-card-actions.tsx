@@ -2,6 +2,7 @@ import { useState } from "react";
 
 import Image from "next/image";
 
+import Button from "@/modules/ui/components/button";
 import LoadingSpinner from "@/modules/ui/components/loading-spinner";
 
 import HeartFilledIcon from "./../../ui/icons/heart-filled.svg";
@@ -50,13 +51,9 @@ export default function PostCardActions({ item }: IPostCardActionsProps) {
         <span>{reactionsCount}</span>
       </div>
       <div className="justify-end">
-        <button
-          className="btn btn-primary"
-          onClick={handleLike}
-          disabled={notLikeable}
-        >
+        <Button onClick={handleLike} disabled={notLikeable}>
           {isLoading ? <LoadingSpinner /> : buttonText}
-        </button>
+        </Button>
       </div>
     </>
   );

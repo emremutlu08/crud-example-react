@@ -39,9 +39,9 @@ export default function PostCardHeaderMenu({ id }: IPostCardHeaderMenuProps) {
           {isLoading ? (
             <LoadingSpinner />
           ) : (
-            <button onClick={handleMenu} className="btn btn-square">
+            <Button onClick={handleMenu} className="btn btn-square">
               <Image src={DotsIcon} width={20} height={20} alt="dots" />
-            </button>
+            </Button>
           )}
         </>
         {isMenuOpen && (

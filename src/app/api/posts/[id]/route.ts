@@ -12,12 +12,12 @@ export async function PUT(
   const res = await baseApi.put("/posts/" + id, body);
   const data = await res.data;
 
-  return NextResponse.json(data);
+  return new NextResponse(JSON.stringify(data), { status: res.status });
 }
 
 export async function DELETE(_: NextRequest, { params: { id } }: PostsParams) {
   const res = await baseApi.delete("/posts/" + id);
   const data = await res.data;
 
-  return NextResponse.json(data);
+  return new NextResponse(JSON.stringify(data), { status: res.status });
 }

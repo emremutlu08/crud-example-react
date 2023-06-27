@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-import { Posts } from "../types/posts-type";
+import { Post, Posts } from "../types/posts-type";
 
 const initialState: Posts = {
   posts: [],
@@ -24,6 +24,13 @@ export const posts = createSlice({
       state.skip = action.payload.skip;
       state.limit = action.payload.limit;
     },
+    addSinglePost: (state, action: PayloadAction<Post>) => {
+      // Post must be unique
+      if (!state.posts.find((post) => post.id === action.payload.id)) {
+        state.posts = [...state.posts, action.payload];
+      }
+    },
+
     deletePost: (state, action: PayloadAction<{ id: number }>) => {
       state.posts = [
         ...state.posts.filter((post) => post.id !== action.payload.id),
@@ -32,5 +39,5 @@ export const posts = createSlice({
   },
 });
 
-export const { reset, deletePost, addPosts } = posts.actions;
+export const { reset, deletePost, addPosts, addSinglePost } = posts.actions;
 export default posts.reducer;

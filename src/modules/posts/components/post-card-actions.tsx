@@ -13,16 +13,11 @@ export default function PostCardActions({ item }: IPostCardActionsProps) {
   const { id, reactions } = item;
   const [isLiked, setIsLiked] = useState(false);
   const [reactionsCount, setReactionsCount] = useState(reactions);
-  // console.log(item, "item");
 
   const [updatePost, { isLoading }] = useUpdatePostMutation();
 
   // Update Reaction
-
   const handleLike = async () => {
-    console.log("like");
-    // (isLiked ? prev - 1 : prev + 1)
-
     const updateCount = isLiked ? reactionsCount - 1 : reactionsCount + 1;
     const result = await updatePost({
       id,
@@ -33,8 +28,6 @@ export default function PostCardActions({ item }: IPostCardActionsProps) {
         setIsLiked((prev) => !prev);
         return res;
       });
-
-    console.log(result, "result");
 
     setReactionsCount(result.reactions);
   };

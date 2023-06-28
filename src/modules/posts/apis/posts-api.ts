@@ -6,7 +6,7 @@ import { Post, Posts } from "../types/posts-type";
 export const postsApi = createApi({
   reducerPath: "postApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: `${process.env.APP_HOST}/api/posts`, // TODO: replace with your own API
+    baseUrl: `/api/posts`, // TODO: replace with your own API
   }),
   endpoints: (builder) => ({
     createPost: builder.mutation<Post, Partial<Post>>({

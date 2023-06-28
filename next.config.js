@@ -10,9 +10,6 @@ const nextConfig = {
       },
     ],
   },
-  env: {
-    APP_HOST: process.env.APP_HOST,
-  },
 };
 
 module.exports = nextConfig;
